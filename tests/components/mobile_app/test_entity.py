@@ -37,7 +37,7 @@ async def test_sensor(hass, create_registrations, webhook_client):  # noqa: F401
     json = await reg_resp.json()
     assert json == {'success': True}
 
-    entity = hass.states.get('sensor.battery_state')
+    entity = hass.states.get('sensor.mobile_app_test_1_battery_state')
     assert entity is not None
 
     assert entity.attributes['device_class'] == 'battery'
@@ -65,7 +65,7 @@ async def test_sensor(hass, create_registrations, webhook_client):  # noqa: F401
 
     assert update_resp.status == 200
 
-    updated_entity = hass.states.get('sensor.battery_state')
+    updated_entity = hass.states.get('sensor.mobile_app_test_1_battery_state')
     assert updated_entity.state == '123'
 
 
